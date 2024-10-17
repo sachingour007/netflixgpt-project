@@ -1,8 +1,10 @@
 import react from "react";
+import "./scss/main.scss";
 import "./App.css";
+import Body from "./components/Body";
 
 function App() {
-  return <>Hello</>;
+  return <Body />;
 }
 
 export default App;
