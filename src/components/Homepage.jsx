@@ -1,5 +1,6 @@
 import React from "react";
 import { bgImage } from "../assets/images";
+import Login from "./Login";
 
 const Homepage = () => {
   return (
@@ -8,6 +9,9 @@ const Homepage = () => {
         <div className="secWrapper">
           <div className="imgBox">
             <img src={bgImage} alt="" />
+          </div>
+          <div className="contentBox">
+            <Login />
           </div>
         </div>
       </section>

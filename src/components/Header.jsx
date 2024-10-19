@@ -9,9 +9,9 @@ const Header = () => {
           <div className="logoBox">
             <img src={netflixLogo} alt="" />
           </div>
-          <div className="loginButton" >
+          {/* <div className="loginButton" >
             <button>Sing In</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

@@ -1,12 +1,13 @@
 //Global
-@import './base/global';
+@use 'base/global';
 
 //module
-@import './module/header';
-@import './module/_footer.scss';
+@use 'module/header';
+@use 'module/footer';
 
 //PaGES CSS
 
-@import './pages/_homepage.scss';
+@use 'pages/homepage' ; //Homepage Css
+@use 'pages/login' ; //Login Css
 
 

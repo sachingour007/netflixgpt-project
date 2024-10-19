@@ -1,0 +1,24 @@
+@use '../base/global' as *;
+
+.loginContainer{
+    h2{color: #fff; font-family: $fontSans; font-weight: $fontW600;margin-bottom: 28px; @include font40; }
+    .formBox{
+        form{display: flex; justify-content: center; gap: 16px; flex-flow: column;
+            .fieldContainer{position: relative; 
+                input{padding: 30px 16px 8px;  width: 100%; background: rgba(70, 90, 126, 0.4); border: 1px solid #fff; border-radius: 5px; color: #fff; line-height: 120%; font-family: $fontSans; @include font16; 
+                    &:focus { border: 1px solid #fff;}
+                }
+                label{ position: absolute; left: 15px; top: 50%; color: rgba(255,255,255,0.7); transition: all 0.2s ease-in-out; cursor: text; transform: translateY(-50%); line-height: 120%; font-family: $fontSans; @include font16; }
+                input:focus + label { top: 20px; left: 15px; color: #fff;  font-size: 12px; 
+                }
+    
+            }
+           button[type="submit"]{background: #E50914; padding: 10px 20px; color: #fff;   border-radius: 6px;  cursor: pointer; font-family:$fontSans;font-weight: $fontW600; @include font16;}
+        }
+        .singInChecker{
+        p{margin-top: 20px; color: #fff; opacity: 0.8; letter-spacing: 0.48px; line-height: 120%; @include font18;
+                a{ color: #fff;font-weight: $fontW700; }
+            }
+        }
+    }
+}
