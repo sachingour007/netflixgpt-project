@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validateForm } from "../utils/formValidation";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignIn, setIsSingIn] = useState(true);
@@ -8,6 +13,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
   const username = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -28,15 +34,53 @@ const Login = () => {
         password: "",
       });
     }
+    if (message) return;
+
+    if (!isSignIn) {
+      //SignUp User
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode + "" + errorMessage);
+          navigate("/");
+        });
+    } else {
+      // Signed in
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user, "signIn");
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode + " " + errorMessage);
+        });
+    }
+
     if (!message) {
       email.current.value = "";
       password.current.value = "";
-      username.current.valu = "";
+      if (!isSignIn && username) {
+        username.current.value = "";
+      }
     }
   };
-
-  useEffect(() => {}, [formError]);
-  console.log(formError);
 
   return (
     <div className="loginContainer">
@@ -71,7 +115,7 @@ const Login = () => {
           </div>
           <div className="fieldContainer">
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               ref={password}
@@ -79,7 +123,7 @@ const Login = () => {
             />
             <p className="errors">{formError.password}</p>
           </div>
-          <button type="submit" id="submit" onClick={submitHandler}>
+          <button id="submit" onClick={submitHandler}>
             Sing in
           </button>
         </form>

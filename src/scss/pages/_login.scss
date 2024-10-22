@@ -13,7 +13,7 @@
                 }
                 .errors{color: #E50914;font-weight: $fontW500;@include font16; margin-top: 5px; padding-left: 6px;}
             }
-           button[type="submit"]{background: #E50914; padding: 10px 20px; color: #fff;   border-radius: 6px;  cursor: pointer; font-family:$fontSans;font-weight: $fontW600; @include font16;}
+          & > button{background: #E50914; padding: 10px 20px; color: #fff;   border-radius: 6px;  cursor: pointer; font-family:$fontSans;font-weight: $fontW600; @include font16;}
         }
         .singInChecker{
         p{margin-top: 20px; color: #fff; opacity: 0.8; letter-spacing: 0.48px; line-height: 120%; @include font18;
