@@ -4,25 +4,36 @@ import { validateForm } from "../utils/formValidation";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/userSlice";
 
 const Login = () => {
   const [isSignIn, setIsSingIn] = useState(true);
+  const [loginData, setLoginData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   const [formError, setFormError] = useState({
     email: "",
     password: "",
   });
   const navigate = useNavigate();
-  const username = useRef(null);
-  const email = useRef(null);
-  const password = useRef(null);
+  const dispatch = useDispatch();
+
+  const formHandler = (e) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
 
   const toggleSignInForm = () => {
     setIsSingIn(!isSignIn);
   };
   const submitHandler = () => {
-    const message = validateForm(email.current.value, password.current.value);
+    const { email, password, username } = loginData;
+    const message = validateForm(email, password);
     if (message) {
       setFormError({
         email: message.email || "",
@@ -38,15 +49,22 @@ const Login = () => {
 
     if (!isSignIn) {
       //SignUp User
-      createUserWithEmailAndPassword(
-        auth,
-        email.current.value,
-        password.current.value
-      )
+      createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          updateProfile(user, {
+            displayName: username,
+          })
+            .then(() => {
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(
+                addUser({ uid: uid, email: email, displayName: displayName })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -56,11 +74,7 @@ const Login = () => {
         });
     } else {
       // Signed in
-      signInWithEmailAndPassword(
-        auth,
-        email.current.value,
-        password.current.value
-      )
+      signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user, "signIn");
@@ -72,13 +86,12 @@ const Login = () => {
           console.log(errorCode + " " + errorMessage);
         });
     }
-
     if (!message) {
-      email.current.value = "";
-      password.current.value = "";
-      if (!isSignIn && username) {
-        username.current.value = "";
-      }
+      setLoginData({
+        username: "",
+        email: "",
+        password: "",
+      });
     }
   };
 
@@ -98,8 +111,9 @@ const Login = () => {
                 type="text"
                 id="username"
                 name="username"
-                ref={username}
+                value={loginData.username}
                 placeholder="Username"
+                onChange={formHandler}
               />
             </div>
           )}
@@ -108,8 +122,9 @@ const Login = () => {
               type="text"
               id="email"
               name="email"
-              ref={email}
               placeholder="Email or mobile number"
+              value={loginData.email}
+              onChange={formHandler}
             />
             <p className="errors">{formError.email}</p>
           </div>
@@ -118,8 +133,9 @@ const Login = () => {
               type="password"
               id="password"
               name="password"
-              ref={password}
               placeholder="Password"
+              value={loginData.password}
+              onChange={formHandler}
             />
             <p className="errors">{formError.password}</p>
           </div>
