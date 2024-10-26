@@ -1,23 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { netflixLogo, userDp } from "../assets/images";
 import { useSelector, useDispatch } from "react-redux";
 import { auth } from "../utils/firebase";
-import { removeUser } from "../store/userSlice";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { addUser, removeUser } from "../store/userSlice";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Header = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
   console.log(user);
+
+  useEffect(() => {
+    //Use Handle from Top Level by Redux
+    const unsubcribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+
+    //OnAuthState Listener Remove When Header unmount
+    return () => unsubcribe();
+  }, []);
 
   const signOutHandle = () => {
     signOut(auth)
       .then(() => {
         dispatch(removeUser());
-        navigate("/");
         setIsDropDownOpen(false);
       })
       .catch((error) => {

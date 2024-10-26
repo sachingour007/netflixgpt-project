@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { validateForm } from "../utils/formValidation";
 import {
   createUserWithEmailAndPassword,
@@ -21,17 +21,29 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const formHandler = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    setLoginData({
+      username: "",
+      email: "",
+      password: "",
+    });
+    setFormError({
+      email: "",
+      password: "",
+    });
+  }, [isSignIn]);
+
   const toggleSignInForm = () => {
     setIsSingIn(!isSignIn);
   };
-  const submitHandler = () => {
+  const submitHandler = async () => {
     const { email, password, username } = loginData;
     const message = validateForm(email, password);
     if (message) {
@@ -60,7 +72,6 @@ const Login = () => {
               dispatch(
                 addUser({ uid: uid, email: email, displayName: displayName })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               console.log(error);
@@ -69,8 +80,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "" + errorMessage);
-          navigate("/");
+          setFormError({ email: "", password: errorMessage });
         });
     } else {
       // Signed in
@@ -78,11 +88,11 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user, "signIn");
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          setFormError({ email: "", password: errorMessage });
           console.log(errorCode + " " + errorMessage);
         });
     }
