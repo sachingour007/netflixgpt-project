@@ -13,8 +13,6 @@ const Header = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-  console.log(user);
-
   useEffect(() => {
     //Use Handle from Top Level by Redux
     const unsubcribe = onAuthStateChanged(auth, (user) => {
@@ -30,7 +28,7 @@ const Header = () => {
 
     //OnAuthState Listener Remove When Header unmount
     return () => unsubcribe();
-  }, []);
+  }, [onAuthStateChanged]);
 
   const signOutHandle = () => {
     signOut(auth)

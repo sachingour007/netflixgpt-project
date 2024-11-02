@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import useNowPlayingMoies from "../Hooks/useNowPlayingMoies";
+import BannerBrowsePage from "./BannerBrowsePage";
 
 const Browse = () => {
+  useNowPlayingMoies();
   return (
-    <div>Browse</div>
-  )
-}
+    <>
+      <BannerBrowsePage />
+    </>
+  );
+};
 
-export default Browse
+export default Browse;

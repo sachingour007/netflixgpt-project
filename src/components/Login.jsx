@@ -87,13 +87,11 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user, "signIn");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setFormError({ email: "", password: errorMessage });
-          console.log(errorCode + " " + errorMessage);
         });
     }
     if (!message) {
