@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import MoviesList from "./MoviesList";
+import { useSelector } from "react-redux";
 
 const MovieSuggestionPage = () => {
-  return (
-    <div>MovieSuggestionPage</div>
-  )
-}
+  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
 
-export default MovieSuggestionPage
+  return (
+    <section className="moviesList">
+      <div className="wrapper">
+        {movies && (
+          <>
+            <MoviesList title={"Now Playing Movies"} movies={movies} />
+            <MoviesList title={"Trending Movies"} movies={movies} />
+            <MoviesList title={"Popular on Netflix"} movies={movies} />
+          </>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default MovieSuggestionPage;

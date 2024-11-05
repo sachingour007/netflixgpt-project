@@ -7,14 +7,15 @@ const BannerBrowsePage = () => {
   const movie = useSelector((store) => store.movies?.nowPlayingMovies);
   if (!movie) return;
   const singleMovie = movie[0];
-  const { id,title, overview } = singleMovie;
-  
+  const { id, title, overview } = singleMovie;
 
   return (
-    <div className="browseBanner">
-      <VideoTrailer movieId={id}/>
-      <VideoTitle title={title} overview={overview} />
-    </div>
+    <section className="browseBanner">
+      <div className="wrapper">
+        <VideoTrailer movieId={id} />
+        <VideoTitle title={title} overview={overview} />
+      </div>
+    </section>
   );
 };
 

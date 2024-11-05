@@ -2,8 +2,8 @@
 
 //Video Title Css
 .titleContainer{position: absolute; top: 50%; transform: translateY(-50%); left: 0; padding-left: 50px; width: 40%;
-    h1{font-family: $fontRoboto; @include font60; color: #fff;}
-    p{margin: 10px 0; font-family: $fontSans; @include font24; color: #fff;}
+    h1{font-family: $fontRoboto; @include font60; color: #fff; transition: all 0.3s ease-in-out;}
+    p{margin: 10px 0; font-family: $fontSans; @include font24; color: #fff; visibility: hidden; opacity: 0; max-height: 0; transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, visibility 0s 0.5s;  overflow: hidden;}
     .btnContainer{display: flex; align-items: center; gap: 20px;
         .btn{cursor: pointer; padding: 12px 40px; @include font18; border-radius: 5px; font-family: $fontSans; font-weight: $fontW500;
             img{width: 20px; height: 20px;}
@@ -11,12 +11,34 @@
             &.InfoBtn{color: #fff; background: #808080;}
         }
     }
+    &:hover{
+        p{opacity: 1; visibility: visible; max-height: 400px; }
+    }
 }
 
 //Video Trailer Css
 
-.videoContainer{width: 100%; height: 100%;position: relative;
+.videoContainer{width: 100%; height: 100%;position: relative; 
     &::before{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgb(0,0,0);
         background: linear-gradient(90deg, rgba(0, 0, 0, 0.794) 0%, rgba(250, 250, 250, 0) 100%);}
-    .videoframe{width: 100%; height: 100%;}
+    .videoframe{width: 100%; height: 100%; }
+}
+
+//Movie Suggestion CSS
+
+.moviesList{ background: #000; position: relative;
+    .wrapper{padding: 20px 0px 20px 20px; margin-top: -100px;
+        .allListBox{ margin-bottom: 50px;
+            h2{color: #fff; margin-bottom: 20px; @include font24; font-family: $fontSans;}
+            .cardsContainer{ 
+                .imgBox{padding-right: 30px; overflow: hidden;
+                    img{width: 100%; height: 100%; transition: all 0.5s ease-in-out;}
+                    &:hover{
+                        img{scale: 1.1;}
+                    }
+                }
+            }
+            &:last-child{margin-bottom: 0;}
+        }
+    }
 }
