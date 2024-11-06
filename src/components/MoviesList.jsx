@@ -5,8 +5,7 @@ import SliderComponent from "./SliderComponent";
 import { moviesSliderSetting } from "../utils/sliderConfig";
 
 const MoviesList = ({ title, movies }) => {
-  console.log(movies);
-
+  if (!movies) return;
   return (
     <div className="allListBox">
       <h2>{title}</h2>

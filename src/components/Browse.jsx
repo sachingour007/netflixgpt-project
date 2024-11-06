@@ -1,10 +1,16 @@
 import React from "react";
-import useNowPlayingMoies from "../Hooks/useNowPlayingMoies";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import BannerBrowsePage from "./BannerBrowsePage";
 import MovieSuggestionPage from "./MovieSuggestionPage";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
 
 const Browse = () => {
-  useNowPlayingMoies();
+  useNowPlayingMovies();
+  usePopularMovies();
+  useTopRatedMovies();
+  useUpcomingMovies();
   return (
     <>
       <BannerBrowsePage />
