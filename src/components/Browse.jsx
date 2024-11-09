@@ -5,16 +5,27 @@ import MovieSuggestionPage from "./MovieSuggestionPage";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import GptSearch from "../pages/GptSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
+  const isGpt = useSelector((store) => store.gptSearch);
+  console.log(isGpt);
+
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();
   useUpcomingMovies();
   return (
     <>
-      <BannerBrowsePage />
-      <MovieSuggestionPage />
+      {isGpt.isGptBtn ? (
+        <GptSearch />
+      ) : (
+        <>
+          <BannerBrowsePage />
+          <MovieSuggestionPage />
+        </>
+      )}
     </>
   );
 };

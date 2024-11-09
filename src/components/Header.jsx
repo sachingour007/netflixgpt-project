@@ -6,12 +6,14 @@ import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../store/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
+import { gptVal } from "../store/gptSlice";
 
 const Header = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const isGpt = useSelector((store) => store.gptSearch);
 
   useEffect(() => {
     //Use Handle from Top Level by Redux
@@ -45,6 +47,10 @@ const Header = () => {
     setIsDropDownOpen(!isDropDownOpen);
   };
 
+  const handlerGptSearch = () => {
+    dispatch(gptVal(true));
+  };
+
   return (
     <header>
       <div className="secWrapper">
@@ -54,6 +60,11 @@ const Header = () => {
           </div>
           {user && (
             <div className="rightContainer">
+              <div className="gptSupportBtn">
+                <button onClick={handlerGptSearch}>
+                  {isGpt.isGptBtn ? "Homepage" : "GPT Search"}{" "}
+                </button>
+              </div>
               <div className="dropdownBox" onClick={dropdownHandler}>
                 <div className="imgBox">
                   <img src={userDp} alt="" />
