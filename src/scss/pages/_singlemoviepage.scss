@@ -1,8 +1,26 @@
 @use '../base/global' as *;
 
-.mainContainer{position: relative;
-    img{width: 100%; height: 100%;}
-    .wrapper{position: absolute; top: 20px;
+.mainContainer{position: relative; width: 100%; height: 100vh;
+    & > img{width: 100%; height: 100%;}
+    .wrapper{@include wrapper; position: absolute; top: 50%; transform: translate(0, -50%);width: 100%; display: flex; gap: 50px;
+        .imgBox{border-radius: 5px; overflow: hidden; width: 25%;
+            & > img{width: 100%; height: 100%;}
+        }
+        .movieDetails{width: calc(75% - 50px);
+            h6{color: #fff; @include font28; font-family: $fontSans; line-height: 140%; font-weight: $fontW600; letter-spacing: 0.40px;}
+            h2{color: #fff; @include font60; font-family: $fontSans; line-height: 140%; font-weight: $fontW700; letter-spacing: 0.40px; margin: 12px 0;}
+            .geners{display: flex; gap: 20px;
+                span{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400; position: relative; padding-left: 20px;
+                    &::before{content: ''; position: absolute; width: 8px; height: 8px; background: #fff; left: 0; top: 50%; transform: translate(0, -50%); border-radius: 100%;}
+                }
+            }
+            & > p{width: 90%; color: #fff; @include font24; margin: 12px 0 20px; font-family: $fontSans; line-height: 140%; font-weight: $fontW600; }
+            .otherDetails{display: flex; gap: 20px; align-items: center;
+                p{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400;}
+                .timeFrame{display: flex; align-items: flex-start; gap: 5px;}
+
+            }
+        }
 
     }
 }
