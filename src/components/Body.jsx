@@ -5,6 +5,7 @@ import { Header, Homepage, Browse } from "./index";
 import { useDispatch } from "react-redux";
 
 import ComponentWrapper from "./ComponentWrapper";
+import SingleMoviePage from "../pages/SingleMoviePage";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -25,8 +26,15 @@ const Body = () => {
         </ComponentWrapper>
       ),
     },
+    {
+      path: "/movie/:id",
+      element: (
+        <ComponentWrapper>
+          <SingleMoviePage />
+        </ComponentWrapper>
+      ),
+    },
   ]);
-  
 
   return <RouterProvider router={appRouter} />;
 };

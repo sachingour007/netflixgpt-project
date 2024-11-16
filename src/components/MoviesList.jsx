@@ -12,7 +12,11 @@ const MoviesList = ({ title, movies }) => {
       <div className="cardsContainer">
         <SliderComponent setting={moviesSliderSetting}>
           {movies.map(({ id, poster_path }) => (
-            <MoviesCard key={id} posterPath={MOVIE_IMG_URL + poster_path} />
+            <MoviesCard
+              key={id}
+              posterPath={MOVIE_IMG_URL + poster_path}
+              movieId={id}
+            />
           ))}
         </SliderComponent>
       </div>

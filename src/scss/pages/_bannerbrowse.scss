@@ -2,8 +2,8 @@
 
 //Video Title Css
 .titleContainer{position: absolute; top: 50%; transform: translateY(-50%); left: 0; padding-left: 50px; width: 40%;
-    h1{font-family: $fontRoboto; @include font60; color: #fff; transition: all 0.3s ease-in-out;}
-    p{margin: 10px 0; font-family: $fontSans; @include font24; color: #fff; visibility: hidden; opacity: 0; max-height: 0; transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, visibility 0s 0.5s;  overflow: hidden;}
+    h1{font-family: $fontRoboto; @include font60; color: #fff; transition: all 0.5s ease-in-out;}
+    p{margin: 10px 0; font-family: $fontSans; @include font24; color: #fff; visibility: hidden; opacity: 0; max-height: 0; transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, visibility 0s 0.3s;  overflow: hidden;}
     .btnContainer{display: flex; align-items: center; gap: 20px;
         .btn{cursor: pointer; padding: 12px 40px; @include font18; border-radius: 5px; font-family: $fontSans; font-weight: $fontW500;
             img{width: 20px; height: 20px;}

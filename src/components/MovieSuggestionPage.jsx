@@ -19,7 +19,10 @@ const MovieSuggestionPage = () => {
               movies={movies?.popularMovies}
             />
             <MoviesList title={"Top Rated"} movies={movies?.topRatedMovies} />
-            <MoviesList title={"Upcoming on Netflix"} movies={movies?.upcomingMovies} />
+            <MoviesList
+              title={"Upcoming on Netflix"}
+              movies={movies?.upcomingMovies}
+            />
           </>
         )}
       </div>
