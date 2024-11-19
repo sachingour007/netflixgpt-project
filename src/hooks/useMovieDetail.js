@@ -12,7 +12,6 @@ const useMovieDetail = (id) => {
     );
 
     const movieDetail = await res.json();
-    console.log(movieDetail);
 
     dispatch(addMovieDetail(movieDetail));
   };

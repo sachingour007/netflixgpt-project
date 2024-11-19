@@ -529,3 +529,7 @@ img {max-width: 100%;}
 body{
     background: #FFFEFB;
 }
+
+.redCta{
+	button{background: #E50914; padding: 8px 20px; color: #fff; font-family:$fontRoboto; font-weight: $fontW600; @include font16; border-radius: 6px; letter-spacing: 0.28px; cursor: pointer;}
+}

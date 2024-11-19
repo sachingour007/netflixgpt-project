@@ -6,9 +6,6 @@ header{position: fixed; top: 0; z-index: 9; width: 100%;
         .secContent{display: flex; align-items: center; justify-content: space-between; padding: 20px 0; position: relative;
             .logoBox{width: 13%; }
             .rightContainer{ display: flex; flex-flow: row; align-items: center; gap: 20px; position: relative;
-                .gptSupportBtn{
-                    button{background: #E50914; padding: 8px 20px; color: #fff; font-family:$fontRoboto; font-weight: $fontW600; @include font16; border-radius: 6px; letter-spacing: 0.28px; cursor: pointer;}
-                }
                 .dropdownBox{display: flex; align-items: center; justify-content: flex-end; gap: 10px; cursor: pointer; 
                     .imgBox{width: 40px; border: 1px solid #D3D3D3;}
                     svg{width: 18px; height: 18px; fill: #fff;

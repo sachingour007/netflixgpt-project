@@ -60,7 +60,7 @@ const Header = () => {
           </div>
           {user && (
             <div className="rightContainer">
-              <div className="gptSupportBtn">
+              <div className="redCta">
                 <button onClick={handlerGptSearch}>
                   {isGpt.isGptBtn ? "Homepage" : "GPT Search"}{" "}
                 </button>

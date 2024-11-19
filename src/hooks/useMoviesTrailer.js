@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { API_OPTION } from "../utils/constant";
-import { addTrailerVideo } from "../store/movieSlice";
+import { addDetailsPageTrailer, addTrailerVideo } from "../store/movieSlice";
 
 const useMoviesTrailer = (movieId) => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const useMoviesTrailer = (movieId) => {
     );
     const trailer = filterTrailers.length ? filterTrailers[0] : data.results[0];
     dispatch(addTrailerVideo(trailer));
+    dispatch(addDetailsPageTrailer(trailer));
   };
 
   useEffect(() => {
