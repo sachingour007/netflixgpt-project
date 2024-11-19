@@ -7,3 +7,4 @@ export { default as movieDetailsBg } from "./movie-details-bg.webp";
 export { default as timeIcon } from "./time-icon.svg";
 export { default as releasedIcon } from "./released-icon.svg";
 export { default as ratingIcon } from "./rating-icon.svg";
+export { default as leftArrow } from "./arrow-left.svg";

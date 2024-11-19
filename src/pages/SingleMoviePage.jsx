@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { useDispatch, useSelector } from "react-redux";
 import { MOVIE_IMG_URL500 } from "../utils/constant";
@@ -9,6 +9,7 @@ import {
   timeIcon,
   releasedIcon,
   ratingIcon,
+  leftArrow,
 } from "../assets/images";
 import { formatRuntime } from "../utils/supportFunctions";
 import useMoviesTrailer from "../hooks/useMoviesTrailer";
@@ -18,6 +19,7 @@ const SingleMoviePage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   useMovieDetail(id);
+  const navigate = useNavigate();
   const allMovieDetail = useSelector((store) => store.movies);
   console.log(allMovieDetail.movieDetail);
   const { movieDetail } = allMovieDetail;
@@ -37,12 +39,19 @@ const SingleMoviePage = () => {
       alert("Trailer Not Available");
     }
   };
+  const backHandler = () => {
+    navigate("/browse");
+  };
 
   if (!movieDetail) return <LoaderShimmerUi />;
   return (
     <section className="mainContainer">
       <img src={movieDetailsBg} alt="" />
       <div className="wrapper">
+        <div className="backCta" onClick={backHandler}>
+          <img src={leftArrow} alt="" />
+          <p>Back to Homepage</p>
+        </div>
         <div className="imgBox">
           <img src={MOVIE_IMG_URL500 + movieDetail?.poster_path} alt="" />
         </div>
