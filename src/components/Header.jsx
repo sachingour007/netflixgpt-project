@@ -3,7 +3,7 @@ import { netflixLogo, userDp } from "../assets/images";
 import { useSelector, useDispatch } from "react-redux";
 import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { addUser, removeUser } from "../store/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { gptVal } from "../store/gptSlice";
@@ -55,9 +55,9 @@ const Header = () => {
     <header>
       <div className="secWrapper">
         <div className="secContent">
-          <div className="logoBox">
+          <NavLink to={"/browse"} className="logoBox">
             <img src={netflixLogo} alt="" />
-          </div>
+          </NavLink>
           {user && (
             <div className="rightContainer">
               <div className="redCta">

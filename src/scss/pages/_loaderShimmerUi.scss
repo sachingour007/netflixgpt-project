@@ -1,0 +1,18 @@
+.main_shimmer{
+    display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      row-gap: 1.5rem;
+      column-gap: 2rem;
+       
+    }
+    .blank_card{
+        margin: 5px;
+        padding: 2px;
+        width: 16%;
+        height: 300px;
+        background-color: rgb(238, 233, 233);
+        border-radius: 10px;
+        flex: 1 1 200px;
+    }

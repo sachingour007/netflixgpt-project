@@ -3,9 +3,10 @@ import MoviesCard from "./MoviesCard";
 import { MOVIE_IMG_URL } from "../utils/constant";
 import SliderComponent from "./SliderComponent";
 import { moviesSliderSetting } from "../utils/sliderConfig";
+import LoaderShimmerUi from "./LoaderShimmerUi";
 
 const MoviesList = ({ title, movies }) => {
-  if (!movies) return;
+  if (!movies) return <LoaderShimmerUi />;
   return (
     <div className="allListBox">
       <h2>{title}</h2>

@@ -1,6 +1,7 @@
 import React from "react";
 import MoviesList from "./MoviesList";
 import { useSelector } from "react-redux";
+import LoaderShimmerUi from "./LoaderShimmerUi";
 
 const MovieSuggestionPage = () => {
   const movies = useSelector((store) => store.movies);

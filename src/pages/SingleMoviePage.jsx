@@ -12,6 +12,7 @@ import {
 } from "../assets/images";
 import { formatRuntime } from "../utils/supportFunctions";
 import useMoviesTrailer from "../hooks/useMoviesTrailer";
+import LoaderShimmerUi from "../components/LoaderShimmerUi";
 
 const SingleMoviePage = () => {
   const { id } = useParams();
@@ -37,7 +38,7 @@ const SingleMoviePage = () => {
     }
   };
 
-  if (!movieDetail) return;
+  if (!movieDetail) return <LoaderShimmerUi />;
   return (
     <section className="mainContainer">
       <img src={movieDetailsBg} alt="" />

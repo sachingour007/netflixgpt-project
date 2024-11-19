@@ -15,9 +15,9 @@ header{position: fixed; top: 0; z-index: 9; width: 100%;
                     }
                 }
                 .dropdwonBody{background: rgba(0, 0, 0, 0.5); z-index: 2; width: auto; display: flex;  height: auto; flex-flow: column; gap: 20px; padding: 10px; position: absolute; right: 0; top: 65px;
-                    .userName{display: flex; align-items: center; justify-content: center; gap: 10px;
+                    .userName{display: flex; align-items: center; gap: 10px;
                         img{width: 30px;}
-                        p{color: #fff; @include font16; font-family:$fontSans;font-weight: $fontW600; text-transform: capitalize; letter-spacing: 0.48px;}
+                        p{color: #fff; @include font16; font-family:$fontSans;font-weight: $fontW600; text-transform: capitalize; letter-spacing: 0.48px; width: calc(100% - 50px);}
                     }
                     .loginButton{border-top: 1px solid #D3D3D3;border:1px solid rgba(142, 142, 142, 0.728);
                         p{padding: 8px 10px; color: #fff;   border-radius: 6px;  cursor: pointer; font-family:$fontSans;font-weight: $fontW600; @include font16; }
