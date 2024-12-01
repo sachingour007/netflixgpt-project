@@ -7,9 +7,11 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { addUser, removeUser } from "../store/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { gptVal } from "../store/gptSlice";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Header = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
@@ -32,6 +34,20 @@ const Header = () => {
     return () => unsubcribe();
   }, [onAuthStateChanged]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 820) {
+        setIsDropDownOpen(true);
+      } else {
+        setIsDropDownOpen(false);
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize); // Update on resize
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const signOutHandle = () => {
     signOut(auth)
       .then(() => {
@@ -50,6 +66,9 @@ const Header = () => {
   const handlerGptSearch = () => {
     dispatch(gptVal(true));
   };
+  const hamburgerHandler = () => {
+    setIsMobileOpen(!isMobileOpen);
+  };
 
   return (
     <header>
@@ -59,7 +78,9 @@ const Header = () => {
             <img src={netflixLogo} alt="" />
           </NavLink>
           {user && (
-            <div className="rightContainer">
+            <div
+              className={`rightContainer  ${isMobileOpen ? "headerShow" : ""}`}
+            >
               <div className="redCta">
                 <button onClick={handlerGptSearch}>
                   {isGpt.isGptBtn ? "Homepage" : "GPT Search"}{" "}
@@ -111,6 +132,11 @@ const Header = () => {
               )}
             </div>
           )}
+          <HamburgerMenu
+            isMobileOpen={isMobileOpen}
+            setIsMobileOpen={setIsMobileOpen}
+            hamburgerHandler={hamburgerHandler}
+          />
         </div>
       </div>
     </header>

@@ -17,7 +17,7 @@
             & > p{width: 90%; color: #fff; @include font24; margin: 12px 0 20px; font-family: $fontSans; line-height: 140%; font-weight: $fontW600; }
             .otherDetails{display: flex; gap: 20px; align-items: center;
                 p{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400;}
-                .timeFrame{display: flex; align-items: flex-start; gap: 5px;}
+                .timeFrame{display: flex; align-items: center; gap: 5px;}
 
             }
             .watchTrailerBtn{margin-top: 50px;}
@@ -26,5 +26,51 @@
             p{font-family: $fontSans; line-height: 140%; font-weight: $fontW600; @include font16; color: #fff;}
         }
 
+    }
+    @media all and (max-width: 1800px){
+        .wrapper{gap: 45px;
+            .movieDetails{width: calc(75% - 45px);
+                .watchTrailerBtn{margin-top: 45px;}
+            }
+        }
+    }
+    @media all and (max-width: 1600px){
+        .wrapper{gap: 40px;
+            .movieDetails{width: calc(75% - 40px);
+                & > p{margin: 10px 0 18px;}
+                .watchTrailerBtn{margin-top: 40px;}
+            }
+        }
+    }
+    @media all and (max-width: 1440px){
+        .wrapper{
+            .imgBox{width: 28%;}
+            .movieDetails{width: calc(73% - 40px);
+                & > p{margin: 10px 0 18px;}
+                .watchTrailerBtn{margin-top: 40px;}
+            }
+        }
+    }
+    @media all and (max-width: 1024px){
+        .wrapper{flex-flow: column; align-items: center; top: 250px;
+            .backCta{top: -70px; left: 50px;}
+            .imgBox{width: 40%;}
+            .movieDetails{width: 60%; margin: 0 auto;
+                & > p{width: 100%;}
+            }
+
+        }
+    }
+    @media all and (max-width: 820px){
+        .wrapper{top: 200px;
+            .movieDetails{width: 80%;}
+        }
+    }
+    @media all and (max-width: 720px){
+        .wrapper{top: 160px; padding-bottom: 50px;
+            .backCta{left: 20px;}
+            .imgBox{width: 70%;}
+            .movieDetails{width: 100%;}
+        }
     }
 }

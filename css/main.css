@@ -1,0 +1,1239 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  scroll-behavior: smooth;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  margin: 0;
+  font-family: "soleillight";
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+  -webkit-appearance: button;
+}
+
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring,
+button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/*fieldset{padding:.35em .75em .625em}*/
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  line-height: 1.3;
+  outline: none;
+  color: #18191F;
+}
+
+html,
+body {
+  background: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/*body{opacity: 0;}*/
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+button {
+  outline: none;
+}
+
+/***************************************************************
+These styles are subject to the license agreement(s) provided when you purchased the license(s).
+
+	https://store.typenetwork.com/cart/eula/type-network
+
+***************************************************************/
+/**************************************************************************************************/
+/************************************************ Common CSS **************************************************/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #BFBFBF;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 18px;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: #BFBFBF;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 18px;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: #BFBFBF;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 18px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #BFBFBF;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 18px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+body {
+  background: #FFFEFB;
+}
+
+.redCta button {
+  background: #E50914;
+  padding: 8px 20px;
+  color: #fff;
+  font-family: "Roboto, sans-serif";
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 6px;
+  letter-spacing: 0.28px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1600px) {
+  .redCta button {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .redCta button {
+    font-size: 12px;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+}
+header::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7889) 8.333%, rgba(0, 0, 0, 0.7556) 16.67%, rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.6222) 33.33%, rgba(0, 0, 0, 0.5222) 41.67%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2778) 58.33%, rgba(0, 0, 0, 0.1778) 66.67%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.04444) 83.33%, rgba(0, 0, 0, 0.01111) 91.67%, rgba(0, 0, 0, 0) 100%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+header .secWrapper {
+  padding: 0px 350px;
+}
+@media screen and (max-width: 1800px) {
+  header .secWrapper {
+    padding: 0px 300px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  header .secWrapper {
+    padding: 0px 250px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  header .secWrapper {
+    padding: 0px 200px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  header .secWrapper {
+    padding: 0px 150px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  header .secWrapper {
+    padding: 0px 100px;
+  }
+}
+@media screen and (max-width: 820px) {
+  header .secWrapper {
+    padding: 0px 50px;
+  }
+}
+@media screen and (max-width: 720px) {
+  header .secWrapper {
+    padding: 0px 20px;
+  }
+}
+header .secWrapper .secContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  position: relative;
+}
+header .secWrapper .secContent .logoBox {
+  width: 13%;
+}
+header .secWrapper .secContent .rightContainer {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+header .secWrapper .secContent .rightContainer .dropdownBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  cursor: pointer;
+}
+header .secWrapper .secContent .rightContainer .dropdownBox .imgBox {
+  width: 40px;
+  border: 1px solid #D3D3D3;
+}
+header .secWrapper .secContent .rightContainer .dropdownBox svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+header .secWrapper .secContent .rightContainer .dropdownBox svg g path {
+  fill: #fff;
+}
+header .secWrapper .secContent .rightContainer .dropdwonBody {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  width: auto;
+  display: flex;
+  height: auto;
+  flex-flow: column;
+  gap: 20px;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 65px;
+}
+header .secWrapper .secContent .rightContainer .dropdwonBody .userName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .secWrapper .secContent .rightContainer .dropdwonBody .userName img {
+  width: 30px;
+}
+header .secWrapper .secContent .rightContainer .dropdwonBody .userName p {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.48px;
+  width: calc(100% - 50px);
+}
+@media screen and (max-width: 1600px) {
+  header .secWrapper .secContent .rightContainer .dropdwonBody .userName p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  header .secWrapper .secContent .rightContainer .dropdwonBody .userName p {
+    font-size: 12px;
+  }
+}
+header .secWrapper .secContent .rightContainer .dropdwonBody .loginButton {
+  border-top: 1px solid #D3D3D3;
+  border: 1px solid rgba(142, 142, 142, 0.728);
+}
+header .secWrapper .secContent .rightContainer .dropdwonBody .loginButton p {
+  padding: 8px 10px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  header .secWrapper .secContent .rightContainer .dropdwonBody .loginButton p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  header .secWrapper .secContent .rightContainer .dropdwonBody .loginButton p {
+    font-size: 12px;
+  }
+}
+@media all and (max-width: 820px) {
+  header {
+    background: #000;
+  }
+  header .secWrapper {
+    position: relative;
+  }
+  header .secWrapper .secContent {
+    position: unset;
+  }
+  header .secWrapper .secContent .logoBox {
+    width: 20%;
+  }
+  header .secWrapper .secContent .rightContainer {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    background: #000;
+    height: 100vh;
+    align-items: flex-start;
+    right: -100%;
+    transition: right 0.5s ease-in-out;
+  }
+  header .secWrapper .secContent .rightContainer.headerShow {
+    right: 0;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 100px;
+    gap: 50px;
+  }
+  header .secWrapper .secContent .rightContainer .dropdownBox {
+    display: none;
+  }
+  header .secWrapper .secContent .rightContainer .dropdwonBody {
+    position: unset;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+/***************HamburgerMenu*****************/
+.hamburgerMenu {
+  position: relative;
+  display: none;
+}
+.hamburgerMenu .hamburgerIcon {
+  width: 35px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+}
+.hamburgerMenu .hamburgerIcon .bar {
+  width: 100%;
+  background: red;
+  height: 3px;
+  border-radius: 2px;
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+.hamburgerMenu .hamburgerIcon .bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+.hamburgerMenu .hamburgerIcon .bar.open:nth-child(2) {
+  opacity: 0;
+}
+.hamburgerMenu .hamburgerIcon .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+@media all and (max-width: 820px) {
+  .hamburgerMenu {
+    display: block;
+  }
+}
+.homepageBanner {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.homepageBanner .secWrapper .imgBox {
+  position: relative;
+}
+.homepageBanner .secWrapper .imgBox::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.homepageBanner .secWrapper .contentBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 50px 65px;
+  width: 25%;
+  border-radius: 10px;
+}
+
+.loginContainer h2 {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  margin-bottom: 28px;
+  font-size: 40px;
+}
+@media screen and (max-width: 1600px) {
+  .loginContainer h2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .loginContainer h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .loginContainer h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .loginContainer h2 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .loginContainer h2 {
+    font-size: 22px;
+  }
+}
+.loginContainer .formBox form {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-flow: column;
+}
+.loginContainer .formBox form .fieldContainer {
+  position: relative;
+}
+.loginContainer .formBox form .fieldContainer input {
+  padding: 18px 10px;
+  width: 100%;
+  background: rgba(70, 90, 126, 0.4);
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  line-height: 120%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .loginContainer .formBox form .fieldContainer input {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .loginContainer .formBox form .fieldContainer input {
+    font-size: 12px;
+  }
+}
+.loginContainer .formBox form .fieldContainer input:focus {
+  border: 1px solid #fff;
+}
+.loginContainer .formBox form .fieldContainer input:focus::placeholder {
+  opacity: 0;
+  font-style: normal;
+}
+.loginContainer .formBox form .fieldContainer input::placeholder {
+  line-height: 120%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .loginContainer .formBox form .fieldContainer input::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .loginContainer .formBox form .fieldContainer input::placeholder {
+    font-size: 12px;
+  }
+}
+.loginContainer .formBox form .fieldContainer .errors {
+  color: #E50914;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 5px;
+  padding-left: 6px;
+}
+@media screen and (max-width: 1600px) {
+  .loginContainer .formBox form .fieldContainer .errors {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .loginContainer .formBox form .fieldContainer .errors {
+    font-size: 12px;
+  }
+}
+.loginContainer .formBox form > button {
+  background: #E50914;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .loginContainer .formBox form > button {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .loginContainer .formBox form > button {
+    font-size: 12px;
+  }
+}
+.loginContainer .formBox .singInChecker p {
+  margin-top: 20px;
+  color: #fff;
+  opacity: 0.8;
+  letter-spacing: 0.48px;
+  line-height: 120%;
+  font-size: 18px;
+}
+@media screen and (max-width: 1600px) {
+  .loginContainer .formBox .singInChecker p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .loginContainer .formBox .singInChecker p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .loginContainer .formBox .singInChecker p {
+    font-size: 12px;
+  }
+}
+.loginContainer .formBox .singInChecker p a {
+  color: #fff;
+  font-weight: 700;
+}
+
+.browseBanner {
+  position: relative;
+  height: auto;
+}
+.browseBanner .wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.titleContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  padding-left: 50px;
+  width: 40%;
+}
+.titleContainer h1 {
+  font-family: "Roboto, sans-serif";
+  font-size: 60px;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+@media screen and (max-width: 1600px) {
+  .titleContainer h1 {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .titleContainer h1 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .titleContainer h1 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .titleContainer h1 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .titleContainer h1 {
+    font-size: 28px;
+  }
+}
+.titleContainer p {
+  margin: 10px 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, visibility 0s 0.3s;
+  overflow: hidden;
+}
+@media screen and (max-width: 1600px) {
+  .titleContainer p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .titleContainer p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .titleContainer p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .titleContainer p {
+    font-size: 14px;
+  }
+}
+.titleContainer .btnContainer {
+  display: flex;
+  align-items: normal;
+  gap: 20px;
+}
+.titleContainer .btnContainer .btn {
+  cursor: pointer;
+  padding: 12px 40px;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+@media screen and (max-width: 1600px) {
+  .titleContainer .btnContainer .btn {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .titleContainer .btnContainer .btn {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .titleContainer .btnContainer .btn {
+    font-size: 12px;
+  }
+}
+.titleContainer .btnContainer .btn img {
+  width: 20px;
+  height: 20px;
+}
+.titleContainer .btnContainer .btn.playBtn {
+  color: #000;
+  background: #E8E8E8;
+  border: 1px solid #d5d5d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.titleContainer .btnContainer .btn.InfoBtn {
+  color: #fff;
+  background: #808080;
+}
+.titleContainer:hover p {
+  opacity: 1;
+  visibility: visible;
+  max-height: 400px;
+}
+@media all and (max-width: 1800px) {
+  .titleContainer {
+    width: 50%;
+  }
+  .titleContainer .btnContainer .btn {
+    padding: 12px 38px;
+  }
+}
+@media all and (max-width: 1440px) {
+  .titleContainer .btnContainer .btn {
+    padding: 10px 35px;
+  }
+}
+@media all and (max-width: 1280px) {
+  .titleContainer .btnContainer .btn {
+    padding: 8px 30px;
+  }
+  .titleContainer .btnContainer .btn img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.videoContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.videoContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.794) 0%, rgba(250, 250, 250, 0) 100%);
+}
+.videoContainer .videoframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+.moviesList {
+  background: #000;
+  position: relative;
+}
+.moviesList .wrapper {
+  padding: 20px 0px 20px 20px;
+  margin-top: -100px;
+}
+.moviesList .wrapper .allListBox {
+  margin-bottom: 50px;
+}
+.moviesList .wrapper .allListBox h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+}
+@media screen and (max-width: 1600px) {
+  .moviesList .wrapper .allListBox h2 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .moviesList .wrapper .allListBox h2 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .moviesList .wrapper .allListBox h2 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .moviesList .wrapper .allListBox h2 {
+    font-size: 14px;
+  }
+}
+.moviesList .wrapper .allListBox .cardsContainer .imgBox {
+  margin-right: 30px;
+  overflow: hidden;
+}
+.moviesList .wrapper .allListBox .cardsContainer .imgBox img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.moviesList .wrapper .allListBox .cardsContainer .imgBox:hover img {
+  scale: 1.1;
+}
+.moviesList .wrapper .allListBox:last-child {
+  margin-bottom: 0;
+}
+@media all and (max-width: 1800px) {
+  .moviesList .wrapper {
+    margin-top: -80px;
+  }
+}
+@media all and (max-width: 1600px) {
+  .moviesList .wrapper {
+    margin-top: -60px;
+  }
+}
+@media all and (max-width: 1440px) {
+  .moviesList .wrapper {
+    margin-top: -40px;
+  }
+  .moviesList .wrapper .allListBox {
+    margin-bottom: 40px;
+  }
+}
+@media all and (max-width: 1024px) {
+  .moviesList .wrapper {
+    padding: 18px 0 18px 18px;
+  }
+  .moviesList .wrapper .allListBox {
+    margin-bottom: 40px;
+  }
+  .moviesList .wrapper .allListBox .cardsContainer .imgBox {
+    margin-right: 20px;
+  }
+}
+@media all and (max-width: 820px) {
+  .moviesList .wrapper {
+    padding: 15px 0 15px 15px;
+  }
+  .moviesList .wrapper .allListBox {
+    margin-bottom: 30px;
+  }
+  .moviesList .wrapper .allListBox .cardsContainer .imgBox {
+    margin-right: 20px;
+  }
+}
+
+.mainContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.mainContainer > img {
+  width: 100%;
+  height: 100%;
+}
+.mainContainer .wrapper {
+  padding: 0px 180px;
+  position: absolute;
+  top: 200px;
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+@media screen and (max-width: 1800px) {
+  .mainContainer .wrapper {
+    padding: 0px 140px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .mainContainer .wrapper {
+    padding: 0px 120px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .mainContainer .wrapper {
+    padding: 0px 100px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .mainContainer .wrapper {
+    padding: 0px 80px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer .wrapper {
+    padding: 0px 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainContainer .wrapper {
+    padding: 0px 20px;
+  }
+}
+.mainContainer .wrapper .imgBox {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 25%;
+}
+.mainContainer .wrapper .imgBox > img {
+  width: 100%;
+  height: 100%;
+}
+.mainContainer .wrapper .movieDetails {
+  width: calc(75% - 50px);
+}
+.mainContainer .wrapper .movieDetails h6 {
+  color: #fff;
+  font-size: 28px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 140%;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+@media screen and (max-width: 1600px) {
+  .mainContainer .wrapper .movieDetails h6 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .mainContainer .wrapper .movieDetails h6 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .mainContainer .wrapper .movieDetails h6 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer .wrapper .movieDetails h6 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .mainContainer .wrapper .movieDetails h6 {
+    font-size: 16px;
+  }
+}
+.mainContainer .wrapper .movieDetails h2 {
+  color: #fff;
+  font-size: 60px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 140%;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  margin: 12px 0;
+}
+@media screen and (max-width: 1600px) {
+  .mainContainer .wrapper .movieDetails h2 {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .mainContainer .wrapper .movieDetails h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .mainContainer .wrapper .movieDetails h2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer .wrapper .movieDetails h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .mainContainer .wrapper .movieDetails h2 {
+    font-size: 28px;
+  }
+}
+.mainContainer .wrapper .movieDetails .geners {
+  display: flex;
+  gap: 20px;
+}
+.mainContainer .wrapper .movieDetails .geners span {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  position: relative;
+  padding-left: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .mainContainer .wrapper .movieDetails .geners span {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer .wrapper .movieDetails .geners span {
+    font-size: 12px;
+  }
+}
+.mainContainer .wrapper .movieDetails .geners span::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 100%;
+}
+.mainContainer .wrapper .movieDetails > p {
+  width: 90%;
+  color: #fff;
+  font-size: 24px;
+  margin: 12px 0 20px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 140%;
+  font-weight: 600;
+}
+@media screen and (max-width: 1600px) {
+  .mainContainer .wrapper .movieDetails > p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .mainContainer .wrapper .movieDetails > p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .mainContainer .wrapper .movieDetails > p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer .wrapper .movieDetails > p {
+    font-size: 14px;
+  }
+}
+.mainContainer .wrapper .movieDetails .otherDetails {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.mainContainer .wrapper .movieDetails .otherDetails p {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+@media screen and (max-width: 1600px) {
+  .mainContainer .wrapper .movieDetails .otherDetails p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer .wrapper .movieDetails .otherDetails p {
+    font-size: 12px;
+  }
+}
+.mainContainer .wrapper .movieDetails .otherDetails .timeFrame {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.mainContainer .wrapper .movieDetails .watchTrailerBtn {
+  margin-top: 50px;
+}
+.mainContainer .wrapper .backCta {
+  position: absolute;
+  top: -40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.mainContainer .wrapper .backCta p {
+  font-family: "Open Sans", sans-serif;
+  line-height: 140%;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+@media screen and (max-width: 1600px) {
+  .mainContainer .wrapper .backCta p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer .wrapper .backCta p {
+    font-size: 12px;
+  }
+}
+
+.main_shimmer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: 1.5rem;
+  column-gap: 2rem;
+}
+
+.blank_card {
+  margin: 5px;
+  padding: 2px;
+  width: 16%;
+  height: 300px;
+  background-color: rgb(238, 233, 233);
+  border-radius: 10px;
+  flex: 1 1 200px;
+}/*# sourceMappingURL=main.css.map */
