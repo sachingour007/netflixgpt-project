@@ -132,11 +132,13 @@ const Header = () => {
               )}
             </div>
           )}
-          <HamburgerMenu
-            isMobileOpen={isMobileOpen}
-            setIsMobileOpen={setIsMobileOpen}
-            hamburgerHandler={hamburgerHandler}
-          />
+          {user && (
+            <HamburgerMenu
+              isMobileOpen={isMobileOpen}
+              setIsMobileOpen={setIsMobileOpen}
+              hamburgerHandler={hamburgerHandler}
+            />
+          )}
         </div>
       </div>
     </header>

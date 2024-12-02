@@ -21,4 +21,54 @@
             }
         }
     }
+    @media all and (max-width: 1800px) {
+        .formBox{
+            form{
+                .fieldContainer{
+                    input{padding: 20px 10px;}
+                }
+                & > button{padding: 14px 20px;}
+            }
+        }
+    }
+    @media all and (max-width: 1600px) {
+        .formBox{
+            form{
+                .fieldContainer{
+                    input{padding: 22px 10px;}
+                }
+                & > button{padding: 16px 20px;}
+            }
+        }
+    }
+    @media all and (max-width: 1440px) {
+        .formBox{
+            form{
+                .fieldContainer{
+                    input{padding: 22px 10px;}
+                }
+                & > button{padding: 16px 20px;}
+            }
+        }
+    }
+    @media all and (max-width: 1024px) {
+        .formBox{
+            form{
+                .fieldContainer{
+                    input{font-size: 16px;}
+                }
+                & > button{font-size: 16px;}
+            }
+        }
+    }
+    @media all and (max-width: 720px){
+        .formBox{
+            form{
+                .fieldContainer{
+                    input{font-size: 14px; padding: 18px 10px;}
+                }
+                & > button{font-size: 14px; padding: 14px 20px;}
+            }
+        }
+    }
 }
