@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Header, Homepage, Browse } from "./index";
+import { Header, Homepage, Browse, Login } from "./index";
 
 import { useDispatch } from "react-redux";
 

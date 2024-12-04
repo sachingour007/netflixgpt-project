@@ -21,7 +21,7 @@ const SingleMoviePage = () => {
   useMovieDetail(id);
   const navigate = useNavigate();
   const allMovieDetail = useSelector((store) => store.movies);
-  console.log(allMovieDetail.movieDetail);
+  console.log(allMovieDetail?.movieDetail);
   const { movieDetail } = allMovieDetail;
   const trailerKey = useSelector((store) => store.movies?.detailsPageTrailer);
 
