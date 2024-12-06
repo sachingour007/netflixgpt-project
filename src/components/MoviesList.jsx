@@ -2,7 +2,7 @@ import React from "react";
 import MoviesCard from "./MoviesCard";
 import { MOVIE_IMG_URL } from "../utils/constant";
 import SliderComponent from "./SliderComponent";
-import { moviesSliderSetting } from "../utils/sliderConfig";
+import { moviesSliderSetting } from "./SliderConfigAndArrows";
 import LoaderShimmerUi from "./LoaderShimmerUi";
 
 const MoviesList = ({ title, movies }) => {

@@ -19,6 +19,14 @@ const Body = () => {
       ),
     },
     {
+      path: "/login",
+      element: (
+        <ComponentWrapper>
+          <Login />
+        </ComponentWrapper>
+      ),
+    },
+    {
       path: "/browse",
       element: (
         <ComponentWrapper>

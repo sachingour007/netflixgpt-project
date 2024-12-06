@@ -70,13 +70,22 @@ const Header = () => {
     setIsMobileOpen(!isMobileOpen);
   };
 
+  const handleLogoClick = () => {
+    if (user) {
+      navigate("/browse");
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <header>
       <div className="secWrapper">
         <div className="secContent">
-          <NavLink to={"/browse"} className="logoBox">
+          <NavLink className="logoBox" onClick={handleLogoClick}>
             <img src={netflixLogo} alt="" />
           </NavLink>
+
           {user && (
             <div
               className={`rightContainer  ${isMobileOpen ? "headerShow" : ""}`}
