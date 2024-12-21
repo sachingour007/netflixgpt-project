@@ -45,45 +45,58 @@ const SingleMoviePage = () => {
 
   if (!movieDetail) return <LoaderShimmerUi />;
   return (
-    <section className="mainContainer">
-      <img src={movieDetailsBg} alt="" />
-      <div className="wrapper">
-        <div className="backCta" onClick={backHandler}>
-          <img src={leftArrow} alt="" />
-          <p>Back to Homepage</p>
-        </div>
-        <div className="imgBox">
-          <img src={MOVIE_IMG_URL500 + movieDetail?.poster_path} alt="" />
-        </div>
-        <div className="movieDetails">
-          <h6>{new Date(movieDetail.release_date).getFullYear()}</h6>
-          <h2>{movieDetail.title}</h2>
-          <div className="geners">
-            {movieDetail.genres.map((gener) => (
-              <span key={gener.id}>{gener.name}</span>
-            ))}
-          </div>
-          <p>{movieDetail.overview}</p>
-          <div className="otherDetails">
-            <div className="timeFrame">
-              <img src={timeIcon} alt="" />
-              <p>{formatRuntime(movieDetail.runtime)}</p>
-            </div>
-            <div className="timeFrame">
-              <img src={releasedIcon} alt="" />
-              <p>{movieDetail.status}</p>
-            </div>
-            <div className="timeFrame">
-              <img src={ratingIcon} alt="" />
-              <p>{movieDetail.vote_average}/10</p>
-            </div>
-          </div>
-          <div className="redCta watchTrailerBtn" onClick={trailerHandler}>
-            <button>Watch Trailer</button>
+    <>
+      <section className="trailerContainer">
+        <div className="secWrapper">
+          <div className="trailerBox">
+            <iframe
+              className="videoframe"
+              src={"https://www.youtube.com/embed/" + trailerKey?.key}
+              title="YouTube video player"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            ></iframe>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <section className="mainContainer">
+        <div className="wrapper">
+          <div className="backCta" onClick={backHandler}>
+            <img src={leftArrow} alt="" />
+            <p>Back to Homepage</p>
+          </div>
+          <div className="imgBox">
+            <img src={MOVIE_IMG_URL500 + movieDetail?.poster_path} alt="" />
+          </div>
+          <div className="movieDetails">
+            <h6>{new Date(movieDetail.release_date).getFullYear()}</h6>
+            <h2>{movieDetail.title}</h2>
+            <div className="geners">
+              {movieDetail.genres.map((gener) => (
+                <span key={gener.id}>{gener.name}</span>
+              ))}
+            </div>
+            <p>{movieDetail.overview}</p>
+            <div className="otherDetails">
+              <div className="timeFrame">
+                <img src={timeIcon} alt="" />
+                <p>{formatRuntime(movieDetail.runtime)}</p>
+              </div>
+              <div className="timeFrame">
+                <img src={releasedIcon} alt="" />
+                <p>{movieDetail.status}</p>
+              </div>
+              <div className="timeFrame">
+                <img src={ratingIcon} alt="" />
+                <p>{movieDetail.vote_average}/10</p>
+              </div>
+            </div>
+            <div className="redCta watchTrailerBtn" onClick={trailerHandler}>
+              <button>Watch Trailer</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
