@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { MOVIE_IMG_URL500 } from "../utils/constant";
 import { singlePageReset } from "../store/movieSlice";
 import {
-  movieDetailsBg,
   timeIcon,
   releasedIcon,
   ratingIcon,
@@ -21,7 +20,6 @@ const SingleMoviePage = () => {
   useMovieDetail(id);
   const navigate = useNavigate();
   const allMovieDetail = useSelector((store) => store.movies);
-  console.log(allMovieDetail?.movieDetail);
   const { movieDetail } = allMovieDetail;
   const trailerKey = useSelector((store) => store.movies?.detailsPageTrailer);
 
@@ -46,6 +44,15 @@ const SingleMoviePage = () => {
   if (!movieDetail) return <LoaderShimmerUi />;
   return (
     <>
+      <section className="headingSec">
+        <div className="secWrapper">
+          <div className="backCta" onClick={backHandler}>
+            <img src={leftArrow} alt="" />
+            <p>Back to Homepage</p>
+          </div>
+          <div className="movieHeading"></div>
+        </div>
+      </section>
       <section className="trailerContainer">
         <div className="secWrapper">
           <div className="trailerBox">
@@ -60,10 +67,6 @@ const SingleMoviePage = () => {
       </section>
       <section className="mainContainer">
         <div className="wrapper">
-          <div className="backCta" onClick={backHandler}>
-            <img src={leftArrow} alt="" />
-            <p>Back to Homepage</p>
-          </div>
           <div className="imgBox">
             <img src={MOVIE_IMG_URL500 + movieDetail?.poster_path} alt="" />
           </div>
@@ -90,9 +93,9 @@ const SingleMoviePage = () => {
                 <p>{movieDetail.vote_average}/10</p>
               </div>
             </div>
-            <div className="redCta watchTrailerBtn" onClick={trailerHandler}>
+            {/* <div className="redCta watchTrailerBtn" onClick={trailerHandler}>
               <button>Watch Trailer</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
