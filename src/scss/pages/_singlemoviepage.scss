@@ -1,9 +1,34 @@
 @use '../base/global' as *;
 
-.headingSec{ margin-top: 170px;position: relative; margin-bottom: 100px;
-    .secWrapper{position: relative; @include wrapper;
-        .backCta{display: flex; align-items: center; gap: 10px; cursor: pointer;
-            p{font-family: $fontSans; line-height: 140%; font-weight: $fontW600; @include font16; color: #fff;}
+.headingSec{ margin-top: 170px;position: relative; margin-bottom: 60px;
+    .secWrapper{position: relative; @include wrapper; display: flex; align-items: end; justify-content: space-between;
+        // .backCta{display: flex; align-items: center; gap: 10px; cursor: pointer;
+        //     p{font-family: $fontSans; line-height: 140%; font-weight: $fontW600; @include font16; color: #fff;}
+        // }
+
+        .movieHeadingBox{display: flex; flex-flow: column; 
+            .heading{
+                h2{color: #fff; @include font60; font-family: $fontpopins; line-height: 100%; font-weight: $fontW400; letter-spacing: 1px; margin: 12px 0;}
+            }
+            .subHeadings{display: flex; gap: 20px;
+                ul{display: flex; align-items: center; gap: 10px;
+                    li{display: flex; gap: 6px; align-items: center; color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400; position:relative;
+                        &:last-child{padding-left: 13px;
+                            &::before{content: ''; position: absolute; top: 50%; transform: translateY(-50%); left: 0; background: rgb(255, 255, 255); border-radius: 100% ;width: 3px; height: 3px;}
+                        }
+                    }
+                }
+                
+            }
+        }
+        .otherDetails{display: flex; align-items: center; gap: 20px; justify-content: center;
+            .otherSubBox{display: flex;  justify-content: center; flex-flow: column; gap: 5px; padding: 10px 20px;
+                h4{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400; text-align: center;}
+                .commonCard{display: flex; align-items: center; gap: 10px;
+                    img{width: 30px;}
+                    p{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400;}
+                }
+            }
         }
     }
     @media all and (max-width: 1800px){margin: 160px 0 90px;
@@ -11,36 +36,29 @@
     }
 }
 
-.trailerContainer{ margin-bottom: 120px;
-    .secWrapper{@include wrapper;
-        .trailerBox{width: 80%; height: 675px; margin: 0 auto; border-radius: 10px; overflow: hidden;position: relative;
-            iframe{width: 100%; height: 100%;}
+.trailerContainer{ margin-bottom: 50px;
+    .secWrapper{@include wrapper; display: flex;width: 100%; gap: 50px;
+        .imgBox{border-radius: 10px; overflow: hidden; width: 400px;
+            & > img{width: 100%; height: 100%; object-fit: cover;}
+        }
+        .trailerBox{width: calc(100% - 400px);padding-top: 38.25%;position: relative;border-radius: 10px;overflow: hidden;
+            iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
         }
     }
-    @media all and (max-width: 1800px){margin-bottom: 110px;}
 }
 
 .mainContainer{position: relative; margin-bottom: 120px; display: flex; align-items: center; justify-content: center;
-    .wrapper{@include wrapper; width: 80%; display: flex; gap: 50px; align-items: flex-start;
-        .imgBox{border-radius: 10px; overflow: hidden; width: 300px;
-            & > img{width: 100%; height: 100%; object-fit: cover;}
-        }
-        .movieDetails{width: calc(100% - 350px);
-            h6{color: #fff; @include font28; font-family: $fontSans; line-height: 100%; font-weight: $fontW600; letter-spacing: 0.40px;}
-            h2{color: #fff; @include font60; font-family: $fontSans; line-height: 100%; font-weight: $fontW700; letter-spacing: 0.40px; margin: 12px 0;}
-           
+    .wrapper{@include wrapper; width: 100%; display: flex; gap: 50px; align-items: flex-start;
+        .movieDetails{
             .geners{display: flex; gap: 20px;
-                span{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400; position: relative; padding-left: 20px;
-                    &::before{content: ''; position: absolute; width: 8px; height: 8px; background: #fff; left: 0; top: 50%; transform: translate(0, -50%); border-radius: 100%;}
+                ul{display: flex; gap: 20px;
+                    li{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400; position: relative; padding-left: 20px; border: 1px solid #fff; border-radius: 30px; padding: 10px 20px; transition: 0.2s all ease-in-out;
+                        &:hover{background: #f5f5f011;}
+                    }
                 }
             }
-            & > p{width: 90%; color: #fff; @include font24; margin: 12px 0 20px; font-family: $fontSans; line-height: 140%; font-weight: $fontW600; }
-            .otherDetails{display: flex; gap: 20px; align-items: center;
-                p{color: #fff; @include font16; font-family: $fontSans; font-weight: $fontW400;}
-                .timeFrame{display: flex; align-items: center; gap: 5px;}
-
-            }
-            .watchTrailerBtn{margin-top: 50px;}
+            & > p{color: #fff; @include font20; margin: 12px 0 20px; font-family: $fontSans; line-height: 140%; font-weight: $fontW600; }
+            
         }
         
 

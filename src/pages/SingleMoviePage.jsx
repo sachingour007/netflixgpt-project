@@ -3,26 +3,28 @@ import { useParams, useNavigate } from "react-router-dom";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { useDispatch, useSelector } from "react-redux";
 import { MOVIE_IMG_URL500 } from "../utils/constant";
-import { singlePageReset } from "../store/movieSlice";
+import { singlePageReset } from "../store/movieFullDeailSlice";
 import {
   timeIcon,
   releasedIcon,
   ratingIcon,
   leftArrow,
+  popularityIcon,
 } from "../assets/images";
-import { formatRuntime } from "../utils/supportFunctions";
+import { formatRuntime } from "../utils/customFunction";
 import useMoviesTrailer from "../hooks/useMoviesTrailer";
 import LoaderShimmerUi from "../components/LoaderShimmerUi";
+import { popularityCalFunction } from "../utils/customFunction";
 
 const SingleMoviePage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  useMovieDetail(id);
   const navigate = useNavigate();
-  const allMovieDetail = useSelector((store) => store.movies);
-  const { movieDetail } = allMovieDetail;
+  const allMovieDetail = useSelector((store) => store.singleMovieDetails);
+  const { singleMovieDetail } = allMovieDetail;
   const trailerKey = useSelector((store) => store.movies?.detailsPageTrailer);
 
+  useMovieDetail(id);
   useMoviesTrailer(id);
 
   useEffect(() => {
@@ -41,10 +43,10 @@ const SingleMoviePage = () => {
     navigate("/browse");
   };
 
-  if (!movieDetail) return <LoaderShimmerUi />;
+  if (!singleMovieDetail) return <LoaderShimmerUi />;
   return (
     <>
-      <section className="headingSec">
+      {/* <section className="headingSec">
         <div className="secWrapper">
           <div className="backCta" onClick={backHandler}>
             <img src={leftArrow} alt="" />
@@ -52,9 +54,53 @@ const SingleMoviePage = () => {
           </div>
           <div className="movieHeading"></div>
         </div>
+      </section> */}
+      <section className="headingSec">
+        <div className="secWrapper">
+          <div className="movieHeadingBox">
+            <div className="heading">
+              <h2>{singleMovieDetail.title}</h2>
+            </div>
+            <div className="subHeadings">
+              <ul>
+                <li>{new Date(singleMovieDetail.release_date).getFullYear()}</li>
+                <li>
+                  <img src={timeIcon} alt="" />
+                  {formatRuntime(singleMovieDetail.runtime)}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="otherDetails">
+            <div className="otherSubBox">
+              <h4>RATING</h4>
+              <div className="commonCard ratingBox">
+                <img src={ratingIcon} alt="" />
+                <p>{singleMovieDetail.vote_average.toFixed(1)}/10</p>
+              </div>
+            </div>
+            <div className="otherSubBox">
+              <h4>STATUS</h4>
+              <div className="commonCard relesedBox">
+                <img src={releasedIcon} alt="" />
+                <p>{singleMovieDetail.status}</p>
+              </div>
+            </div>
+            <div className="otherSubBox">
+              <h4>POPULARITY</h4>
+              <div className="commonCard popularityBox">
+                <img src={popularityIcon} alt="" />
+                <p>{popularityCalFunction(singleMovieDetail.popularity)}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section className="trailerContainer">
         <div className="secWrapper">
+          <div className="imgBox">
+            <img src={MOVIE_IMG_URL500 + singleMovieDetail?.poster_path} alt="" />
+          </div>
           <div className="trailerBox">
             <iframe
               className="videoframe"
@@ -67,32 +113,16 @@ const SingleMoviePage = () => {
       </section>
       <section className="mainContainer">
         <div className="wrapper">
-          <div className="imgBox">
-            <img src={MOVIE_IMG_URL500 + movieDetail?.poster_path} alt="" />
-          </div>
           <div className="movieDetails">
-            <h6>{new Date(movieDetail.release_date).getFullYear()}</h6>
-            <h2>{movieDetail.title}</h2>
             <div className="geners">
-              {movieDetail.genres.map((gener) => (
-                <span key={gener.id}>{gener.name}</span>
-              ))}
+              <ul>
+                {singleMovieDetail.genres.map((gener) => (
+                  <li key={gener.id}>{gener.name}</li>
+                ))}
+              </ul>
             </div>
-            <p>{movieDetail.overview}</p>
-            <div className="otherDetails">
-              <div className="timeFrame">
-                <img src={timeIcon} alt="" />
-                <p>{formatRuntime(movieDetail.runtime)}</p>
-              </div>
-              <div className="timeFrame">
-                <img src={releasedIcon} alt="" />
-                <p>{movieDetail.status}</p>
-              </div>
-              <div className="timeFrame">
-                <img src={ratingIcon} alt="" />
-                <p>{movieDetail.vote_average}/10</p>
-              </div>
-            </div>
+            <p>{singleMovieDetail.overview}</p>
+
             {/* <div className="redCta watchTrailerBtn" onClick={trailerHandler}>
               <button>Watch Trailer</button>
             </div> */}

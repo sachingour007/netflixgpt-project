@@ -8,7 +8,7 @@ const movieSlice = createSlice({
     topRatedMovies: null,
     upcomingMovies: null,
     trailerVideo: null,
-    movieDetail: null,
+    
     detailsPageTrailer: null,
   },
   reducers: {
@@ -26,12 +26,6 @@ const movieSlice = createSlice({
     },
     addTrailerVideo: (state, action) => {
       state.trailerVideo = action.payload;
-    },
-    addMovieDetail: (state, action) => {
-      state.movieDetail = action.payload;
-    },
-    singlePageReset: (state, action) => {
-      state.movieDetail = null;
     },
     addDetailsPageTrailer: (state, action) => {
       state.detailsPageTrailer = action.payload;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { API_OPTION } from "../utils/constant";
 import { useDispatch } from "react-redux";
-import { addMovieDetail } from "../store/movieSlice";
+import { addMovieDetail } from "../store/movieFullDeailSlice";
 
 const useMovieDetail = (id) => {
   const dispatch = useDispatch();
@@ -12,9 +12,6 @@ const useMovieDetail = (id) => {
     );
 
     const movieDetail = await res.json();
-    console.log(movieDetail);
-    
-
     dispatch(addMovieDetail(movieDetail));
   };
 

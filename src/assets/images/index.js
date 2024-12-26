@@ -5,6 +5,7 @@ export { default as downArrow } from "./down-arrow.svg";
 export { default as playButton } from "./play-button.svg";
 export { default as timeIcon } from "./time-icon.svg";
 export { default as releasedIcon } from "./released-icon.svg";
+export { default as popularityIcon } from "./popularity-icon.svg";
 export { default as ratingIcon } from "./rating-icon.svg";
 export { default as leftArrow } from "./arrow-left.svg";
 export { default as prevArrow } from "./left-arrow-svg.svg";
