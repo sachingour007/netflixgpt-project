@@ -13,8 +13,10 @@ import {
 } from "../assets/images";
 import { formatRuntime } from "../utils/customFunction";
 import useMoviesTrailer from "../hooks/useMoviesTrailer";
+import useCastDetails from "../hooks/useCastDetails";
 import LoaderShimmerUi from "../components/LoaderShimmerUi";
 import { popularityCalFunction } from "../utils/customFunction";
+import CastingCard from "../components/CastingCard";
 
 const SingleMoviePage = () => {
   const { id } = useParams();
@@ -23,22 +25,19 @@ const SingleMoviePage = () => {
   const allMovieDetail = useSelector((store) => store.singleMovieDetails);
   const { singleMovieDetail } = allMovieDetail;
   const trailerKey = useSelector((store) => store.movies?.detailsPageTrailer);
+  const castDetails = useSelector(
+    (store) => store.singleMovieDetails.singleMovieCastDetail
+  );
+  console.log(castDetails);
 
   useMovieDetail(id);
   useMoviesTrailer(id);
+  useCastDetails(id);
 
   useEffect(() => {
     dispatch(singlePageReset());
   }, []);
 
-  const trailerHandler = () => {
-    if (trailerKey && trailerKey.key) {
-      const youtubeUrl = `https://www.youtube.com/watch?v=${trailerKey.key}`;
-      window.open(youtubeUrl, "_blank");
-    } else {
-      alert("Trailer Not Available");
-    }
-  };
   const backHandler = () => {
     navigate("/browse");
   };
@@ -55,59 +54,64 @@ const SingleMoviePage = () => {
           <div className="movieHeading"></div>
         </div>
       </section> */}
-      <section className="headingSec">
-        <div className="secWrapper">
-          <div className="movieHeadingBox">
-            <div className="heading">
-              <h2>{singleMovieDetail.title}</h2>
-            </div>
-            <div className="subHeadings">
-              <ul>
-                <li>{new Date(singleMovieDetail.release_date).getFullYear()}</li>
-                <li>
-                  <img src={timeIcon} alt="" />
-                  {formatRuntime(singleMovieDetail.runtime)}
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="otherDetails">
-            <div className="otherSubBox">
-              <h4>RATING</h4>
-              <div className="commonCard ratingBox">
-                <img src={ratingIcon} alt="" />
-                <p>{singleMovieDetail.vote_average.toFixed(1)}/10</p>
-              </div>
-            </div>
-            <div className="otherSubBox">
-              <h4>STATUS</h4>
-              <div className="commonCard relesedBox">
-                <img src={releasedIcon} alt="" />
-                <p>{singleMovieDetail.status}</p>
-              </div>
-            </div>
-            <div className="otherSubBox">
-              <h4>POPULARITY</h4>
-              <div className="commonCard popularityBox">
-                <img src={popularityIcon} alt="" />
-                <p>{popularityCalFunction(singleMovieDetail.popularity)}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="trailerContainer">
         <div className="secWrapper">
-          <div className="imgBox">
-            <img src={MOVIE_IMG_URL500 + singleMovieDetail?.poster_path} alt="" />
+          <div className="HeadBox">
+            <div className="movieHeadingBox">
+              <div className="heading">
+                <h2>{singleMovieDetail.title}</h2>
+              </div>
+              <div className="subHeadings">
+                <ul>
+                  <li>
+                    {new Date(singleMovieDetail.release_date).getFullYear()}
+                  </li>
+                  <li>
+                    <img src={timeIcon} alt="" />
+                    {formatRuntime(singleMovieDetail.runtime)}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="otherDetails">
+              <div className="otherSubBox">
+                <h4>RATING</h4>
+                <div className="commonCard ratingBox">
+                  <img src={ratingIcon} alt="" />
+                  <p>{singleMovieDetail.vote_average.toFixed(1)}/10</p>
+                </div>
+              </div>
+              <div className="otherSubBox">
+                <h4>STATUS</h4>
+                <div className="commonCard relesedBox">
+                  <img src={releasedIcon} alt="" />
+                  <p>{singleMovieDetail.status}</p>
+                </div>
+              </div>
+              <div className="otherSubBox">
+                <h4>POPULARITY</h4>
+                <div className="commonCard popularityBox">
+                  <img src={popularityIcon} alt="" />
+                  <p>{popularityCalFunction(singleMovieDetail.popularity)}</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="trailerBox">
-            <iframe
-              className="videoframe"
-              src={"https://www.youtube.com/embed/" + trailerKey?.key}
-              title="YouTube video player"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            ></iframe>
+          <div className="imgAndtrailerBox">
+            <div className="imgBox">
+              <img
+                src={MOVIE_IMG_URL500 + singleMovieDetail?.poster_path}
+                alt=""
+              />
+            </div>
+            <div className="trailerBox">
+              <iframe
+                className="videoframe"
+                src={"https://www.youtube.com/embed/" + trailerKey?.key}
+                title="YouTube video player"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
@@ -121,11 +125,18 @@ const SingleMoviePage = () => {
                 ))}
               </ul>
             </div>
-            <p>{singleMovieDetail.overview}</p>
-
-            {/* <div className="redCta watchTrailerBtn" onClick={trailerHandler}>
-              <button>Watch Trailer</button>
-            </div> */}
+            <p>
+              <span>Storyline</span>
+              {singleMovieDetail.overview}
+            </p>
+          </div>
+          <div className="castDetailContainer">
+            <p>Top Cast</p>
+            <div className="castBox">
+              {castDetails?.cast.map((actor) => (
+                <CastingCard key={actor.id} {...actor} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
