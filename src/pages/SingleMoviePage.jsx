@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { useDispatch, useSelector } from "react-redux";
-import { MOVIE_IMG_URL500 } from "../utils/constant";
+import { MOVIE_IMG_URL, MOVIE_IMG_URL500 } from "../utils/constant";
 import { singlePageReset } from "../store/movieFullDeailSlice";
 import {
   timeIcon,
@@ -14,9 +14,11 @@ import {
 import { formatRuntime } from "../utils/customFunction";
 import useMoviesTrailer from "../hooks/useMoviesTrailer";
 import useCastDetails from "../hooks/useCastDetails";
+import useRecommendedMovie from "../hooks/useRecommendedMovie";
 import LoaderShimmerUi from "../components/LoaderShimmerUi";
 import { popularityCalFunction } from "../utils/customFunction";
 import CastingCard from "../components/CastingCard";
+import MoviesCard from "../components/MoviesCard";
 
 const SingleMoviePage = () => {
   const { id } = useParams();
@@ -28,11 +30,13 @@ const SingleMoviePage = () => {
   const castDetails = useSelector(
     (store) => store.singleMovieDetails.singleMovieCastDetail
   );
-  console.log(castDetails);
-
+  const getRecommendedMovi = useSelector(
+    (store) => store.singleMovieDetails.recommendedMovies
+  );
   useMovieDetail(id);
   useMoviesTrailer(id);
   useCastDetails(id);
+  useRecommendedMovie(id);
 
   useEffect(() => {
     dispatch(singlePageReset());
@@ -42,20 +46,17 @@ const SingleMoviePage = () => {
     navigate("/browse");
   };
 
-  if (!singleMovieDetail) return <LoaderShimmerUi />;
+  const isLoading = !singleMovieDetail || !getRecommendedMovi || !castDetails;
+  if (isLoading) return <LoaderShimmerUi />;
+
   return (
     <>
-      {/* <section className="headingSec">
+      <section className="trailerContainer">
         <div className="secWrapper">
           <div className="backCta" onClick={backHandler}>
             <img src={leftArrow} alt="" />
             <p>Back to Homepage</p>
           </div>
-          <div className="movieHeading"></div>
-        </div>
-      </section> */}
-      <section className="trailerContainer">
-        <div className="secWrapper">
           <div className="HeadBox">
             <div className="movieHeadingBox">
               <div className="heading">
@@ -133,10 +134,26 @@ const SingleMoviePage = () => {
           <div className="castDetailContainer">
             <p>Top Cast</p>
             <div className="castBox">
-              {castDetails?.cast.map((actor) => (
+              {castDetails?.cast.slice(0, 12).map((actor) => (
                 <CastingCard key={actor.id} {...actor} />
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="moreMovieSuggestionSec">
+        <div className="secWrapper">
+          <div className="secHeading">
+            <p>More like this</p>
+          </div>
+          <div className="recMovieContainer">
+            {getRecommendedMovi.slice(0, 5).map(({ id, poster_path }) => (
+              <MoviesCard
+                key={id}
+                posterPath={MOVIE_IMG_URL + poster_path}
+                movieId={id}
+              />
+            ))}
           </div>
         </div>
       </section>

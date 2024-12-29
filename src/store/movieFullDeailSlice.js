@@ -5,6 +5,7 @@ const movieFullDetailSlice = createSlice({
   initialState: {
     singleMovieDetail: null,
     singleMovieCastDetail: null,
+    recommendedMovies: null,
   },
   reducers: {
     addMovieDetail: (state, action) => {
@@ -16,9 +17,17 @@ const movieFullDetailSlice = createSlice({
     addMovieCastDetails: (state, action) => {
       state.singleMovieCastDetail = action.payload;
     },
+    recommendedMovies: (state, action) => {
+      state.recommendedMovies = action.payload;
+    },
   },
 });
 
-export const { addMovieDetail, singlePageReset, addMovieCastDetails } = movieFullDetailSlice.actions;
+export const {
+  addMovieDetail,
+  singlePageReset,
+  addMovieCastDetails,
+  recommendedMovies,
+} = movieFullDetailSlice.actions;
 
 export default movieFullDetailSlice.reducer;

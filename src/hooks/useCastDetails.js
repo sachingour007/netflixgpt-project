@@ -15,7 +15,7 @@ const useCastDetails = (id) => {
   };
   useEffect(() => {
     getCastDetails();
-  }, []);
+  }, [id]);
 };
 
 export default useCastDetails;
