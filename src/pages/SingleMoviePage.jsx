@@ -46,7 +46,8 @@ const SingleMoviePage = () => {
     navigate("/browse");
   };
 
-  const isLoading = !singleMovieDetail || !getRecommendedMovi || !castDetails;
+  const isLoading =
+    !singleMovieDetail || !getRecommendedMovi || !castDetails || !trailerKey;
   if (isLoading) return <LoaderShimmerUi />;
 
   return (
