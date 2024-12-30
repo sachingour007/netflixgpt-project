@@ -88,13 +88,13 @@ const Header = () => {
 
           {user && (
             <div
-              className={`rightContainer  ${isMobileOpen ? "headerShow" : ""}`}
+              className={`rightContainer ${isMobileOpen ? "headerShow" : ""}`}
             >
-              <div className="redCta">
+              {/* <div className="redCta">
                 <button onClick={handlerGptSearch}>
                   {isGpt.isGptBtn ? "Homepage" : "GPT Search"}{" "}
                 </button>
-              </div>
+              </div> */}
               <div className="dropdownBox" onClick={dropdownHandler}>
                 <div className="imgBox">
                   <img src={userDp} alt="" />

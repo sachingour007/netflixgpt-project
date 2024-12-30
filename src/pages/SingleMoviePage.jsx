@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,11 +19,18 @@ import LoaderShimmerUi from "../components/LoaderShimmerUi";
 import { popularityCalFunction } from "../utils/customFunction";
 import CastingCard from "../components/CastingCard";
 import MoviesCard from "../components/MoviesCard";
+import {
+  castSlider,
+  genresSlider,
+  recomendationSlider,
+} from "../components/SliderConfigAndArrows";
+import SliderComponent from "../components/SliderComponent";
 
 const SingleMoviePage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
   const allMovieDetail = useSelector((store) => store.singleMovieDetails);
   const { singleMovieDetail } = allMovieDetail;
   const trailerKey = useSelector((store) => store.movies?.detailsPageTrailer);
@@ -41,6 +48,18 @@ const SingleMoviePage = () => {
   useEffect(() => {
     dispatch(singlePageReset());
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 720);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const backHandler = () => {
     navigate("/browse");
@@ -121,11 +140,21 @@ const SingleMoviePage = () => {
         <div className="wrapper">
           <div className="movieDetails">
             <div className="geners">
-              <ul>
-                {singleMovieDetail.genres.map((gener) => (
-                  <li key={gener.id}>{gener.name}</li>
-                ))}
-              </ul>
+              {isMobile ? (
+                <ul>
+                  <SliderComponent setting={genresSlider}>
+                    {singleMovieDetail.genres.map((gener) => (
+                      <li key={gener.id}>{gener.name}</li>
+                    ))}
+                  </SliderComponent>
+                </ul>
+              ) : (
+                <ul>
+                  {singleMovieDetail.genres.map((gener) => (
+                    <li key={gener.id}>{gener.name}</li>
+                  ))}
+                </ul>
+              )}
             </div>
             <p>
               <span>Storyline</span>
@@ -135,9 +164,19 @@ const SingleMoviePage = () => {
           <div className="castDetailContainer">
             <p>Top Cast</p>
             <div className="castBox">
-              {castDetails?.cast.slice(0, 12).map((actor) => (
-                <CastingCard key={actor.id} {...actor} />
-              ))}
+              {isMobile ? (
+                <SliderComponent setting={castSlider}>
+                  {castDetails?.cast.slice(0, 12).map((actor) => (
+                    <CastingCard key={actor.id} {...actor} />
+                  ))}
+                </SliderComponent>
+              ) : (
+                <>
+                  {castDetails?.cast.slice(0, 12).map((actor) => (
+                    <CastingCard key={actor.id} {...actor} />
+                  ))}
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -148,13 +187,27 @@ const SingleMoviePage = () => {
             <p>More like this</p>
           </div>
           <div className="recMovieContainer">
-            {getRecommendedMovi.slice(0, 5).map(({ id, poster_path }) => (
-              <MoviesCard
-                key={id}
-                posterPath={MOVIE_IMG_URL + poster_path}
-                movieId={id}
-              />
-            ))}
+            {isMobile ? (
+              <SliderComponent setting={recomendationSlider}>
+                {getRecommendedMovi.slice(0, 5).map(({ id, poster_path }) => (
+                  <MoviesCard
+                    key={id}
+                    posterPath={MOVIE_IMG_URL + poster_path}
+                    movieId={id}
+                  />
+                ))}
+              </SliderComponent>
+            ) : (
+              <>
+                {getRecommendedMovi.slice(0, 5).map(({ id, poster_path }) => (
+                  <MoviesCard
+                    key={id}
+                    posterPath={MOVIE_IMG_URL + poster_path}
+                    movieId={id}
+                  />
+                ))}
+              </>
+            )}
           </div>
         </div>
       </section>

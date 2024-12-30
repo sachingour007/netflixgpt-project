@@ -64,3 +64,48 @@ export const moviesSliderSetting = {
     },
   ],
 };
+export const genresSlider = {
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: false,
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 2.2,
+      },
+    },
+  ],
+};
+export const castSlider = {
+  slidesToShow: 2.2,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: false,
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1.2,
+      },
+    },
+  ],
+};
+export const recomendationSlider = {
+  slidesToShow: 2.2,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: false,
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1.6,
+      },
+    },
+  ],
+};

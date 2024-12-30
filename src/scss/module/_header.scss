@@ -5,7 +5,7 @@ header{position: fixed; top: 0; z-index: 9; width: 100%;
     .secWrapper{@include wrapperTwo;
         .secContent{display: flex; align-items: center; justify-content: space-between; padding: 20px 0; position: relative;
             .logoBox{width: 13%; }
-            .rightContainer{ display: flex; flex-flow: row; align-items: center; gap: 20px; position: relative;
+            .rightContainer{ display: flex; flex-flow: row; align-items: center; gap: 20px; position: relative; width: 87%; justify-content: flex-end;
                 .dropdownBox{display: flex; align-items: center; justify-content: flex-end; gap: 10px; cursor: pointer; 
                     .imgBox{width: 40px; border: 1px solid #D3D3D3;}
                     svg{width: 18px; height: 18px; fill: #fff;
@@ -30,8 +30,8 @@ header{position: fixed; top: 0; z-index: 9; width: 100%;
         .secWrapper{position: relative;
             .secContent{position: unset;
                 .logoBox{width: 20%;}
-                .rightContainer{position: absolute; top: 80px; width: 100%; background: #000; height: 100vh; align-items: flex-start; right: -100%;  transition: right 0.5s ease-in-out;
-                    &.headerShow{right: 0; flex-flow: column; align-items: center; padding-top: 100px; gap: 50px;}
+                .rightContainer{position: absolute; top: 80px; width: 100%; background: #000; height: 100vh; align-items: flex-start; right: -100%;  transition: right 0.5s ease-in-out; padding-top: 100px;
+                    &.headerShow{right: 0; flex-flow: column; align-items: center; padding-top: 100px; gap: 50px; justify-content: flex-start;}
                     .dropdownBox{display: none;}
                     .dropdwonBody{position: unset; width: 100%; align-items: center;}
                 
