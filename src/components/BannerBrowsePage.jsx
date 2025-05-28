@@ -13,7 +13,7 @@ const BannerBrowsePage = () => {
     <section className="browseBanner">
       <div className="wrapper">
         <VideoTrailer movieId={id} />
-        <VideoTitle title={title} overview={overview} />
+        <VideoTitle title={title} overview={overview} movieId={id} />
       </div>
     </section>
   );

@@ -100,6 +100,8 @@ export const recomendationSlider = {
   dots: false,
   arrows: false,
   infinite: false,
+  cssEase: "linear",
+  speed: 300,
   responsive: [
     {
       breakpoint: 500,

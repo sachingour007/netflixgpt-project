@@ -3,12 +3,14 @@
 //Video Title Css
 .titleContainer{position: absolute; top: 50%; transform: translateY(-50%); left: 0; padding-left: 50px; width: 40%;
     h1{font-family: $fontRoboto; @include font60; color: #fff; transition: all 0.5s ease-in-out;}
-    p{margin: 10px 0; font-family: $fontSans; @include font24; color: #fff; visibility: hidden; opacity: 0; max-height: 0; transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, visibility 0s 0.3s;  overflow: hidden;}
+    p{margin: 10px 0; font-family: $fontSans; @include font24; color: #fff; visibility: hidden; opacity: 0; max-height: 0; transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, visibility 0.3s;  overflow: hidden;}
     .btnContainer{display: flex; align-items: normal; gap: 20px;
         .btn{cursor: pointer; padding: 12px 40px; @include font18; border-radius: 5px; font-family: $fontSans; font-weight: $fontW500;
             img{width: 20px; height: 20px;}
             &.playBtn{color: #000; background: #E8E8E8; border: 1px solid #d5d5d5; display: flex; align-items: center; justify-content: center; gap: 10px;}
-            &.InfoBtn{color: #fff; background: #808080;}
+            &.InfoBtn{color: #fff; background: #cf1b1b; transition: 0.5s all ease-in-out;
+                &:hover{background: #bf4f4f;}
+            }
         }
     }
     &:hover{
