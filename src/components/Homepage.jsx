@@ -9,7 +9,6 @@ const Homepage = () => {
         <div className="secWrapper">
           <div className="imgBox">
             <img src={bgImage} alt="" className="desktop" />
-            <img src={bgImageMbl} alt="" className="mbl" />
           </div>
           <div className="contentBox">
             <Login />
